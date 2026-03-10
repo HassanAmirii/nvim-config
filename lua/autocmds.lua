@@ -27,5 +27,12 @@ autocmd("BufReadPost", {
     end
   end,
 })
-
-
+--reflect dir change on the file tree when invoked on the commad interface
+autocmd("DirChanged", {
+  callback = function()
+    local ok, api = pcall(require, "nvim-tree.api")
+    if ok then
+      api.tree.change_root(vim.fn.getcwd())
+    end
+  end,
+})
