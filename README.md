@@ -1,9 +1,3 @@
-# **Hassan's Neovim Config: A Productive Lua Setup**
-
-## Overview
-
-This repository hosts a meticulously crafted Neovim configuration, designed for an efficient and enjoyable development workflow. Built entirely in Lua, it leverages a modern plugin ecosystem to provide robust language server protocol (LSP) support, intelligent code completion, fuzzy finding, intuitive file management, and a highly customizable user interface, all optimized for speed and productivity.
-
 ## Features
 
 - **Modern Plugin Management**: Utilizes `lazy.nvim` for declarative, performant, and lazy-loaded plugin management.
