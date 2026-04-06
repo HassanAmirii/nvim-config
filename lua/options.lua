@@ -13,6 +13,16 @@ vim.o.showbreak = "↪ "
 vim.o.smartindent = true
 vim.o.cursorline = true
 vim.o.signcolumn = "yes"
+vim.opt.fillchars:append({ eob = " " })
+
+-- Cursor style with blinking disabled (smear-cursor handles motion)
+vim.opt.guicursor = {
+	"n-v-c:block",
+	"i-ci-ve:ver25",
+	"r-cr:hor20",
+	"o:hor50",
+	"a:Cursor",
+}
 
 -- Search
 vim.o.ignorecase = true
