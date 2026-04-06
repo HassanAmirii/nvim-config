@@ -4,6 +4,9 @@ vim.keymap.set({ "n", "x" }, "<leader>y", '"+y', { desc = "Copy to clipboard" })
 vim.keymap.set({ "n", "x" }, "<leader>v", '"+p', { desc = "Paste from clipboard" })
 vim.keymap.set({ "n", "x" }, "<leader>V", '"+P', { desc = "Paste before from clipboard" })
 
+vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { desc = "Exit terminal mode" })
+vim.keymap.set("t", "<C-[>", [[<C-\><C-n>]], { desc = "Exit terminal mode" })
+
 -- Telescope
 vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<CR>", { desc = "Find files" })
 vim.keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<CR>", { desc = "Live grep" })

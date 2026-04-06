@@ -56,3 +56,13 @@ autocmd("FileType", {
     vim.opt_local.wrap = false
   end,
 })
+
+autocmd({ "TermOpen", "BufWinEnter" }, {
+  group = "smart_wrap",
+  pattern = "term://*",
+  callback = function()
+    vim.opt_local.wrap = true
+    vim.opt_local.linebreak = true
+    vim.opt_local.breakindent = true
+  end,
+})
