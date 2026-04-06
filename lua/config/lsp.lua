@@ -1,8 +1,11 @@
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
 require("mason").setup()
 require("mason-lspconfig").setup({
   ensure_installed = {
     "pyright",
     -- "ts_ls",  -- Optional: let mason-lspconfig handle it
+    "intelephense",
     "html",
     "cssls",
     "jsonls",
@@ -12,21 +15,27 @@ require("mason-lspconfig").setup({
     function(server_name)
       -- Use the new vim.lsp.config API
       vim.lsp.config[server_name] = {
-        capabilities = require("cmp_nvim_lsp").default_capabilities(),
-        on_attach = function(client, bufnr)
-          -- Format on save
-          if client.server_capabilities.documentFormattingProvider then
-            vim.api.nvim_create_autocmd("BufWritePre", {
-              buffer = bufnr,
-              callback = function() vim.lsp.buf.format({ async = false }) end,
-            })
-          end
-        end,
+        capabilities = capabilities,
       }
       -- Enable the LSP client for this server
       vim.lsp.enable(server_name)
     end,
   },
+})
+
+require("mason-tool-installer").setup({
+  ensure_installed = {
+    "prettier",
+    "stylua",
+    "black",
+    "isort",
+    "shfmt",
+    "clang-format",
+    "php-cs-fixer",
+  },
+  auto_update = false,
+  run_on_start = true,
+  start_delay = 1000,
 })
 
 -- Diagnostic signs
@@ -46,15 +55,7 @@ vim.diagnostic.config({
 -- Manually set up TypeScript using the new API
 vim.lsp.config.ts_ls = {
   cmd = { "typescript-language-server", "--stdio" },
-  capabilities = require("cmp_nvim_lsp").default_capabilities(),
-  on_attach = function(client, bufnr)
-    if client.server_capabilities.documentFormattingProvider then
-      vim.api.nvim_create_autocmd("BufWritePre", {
-        buffer = bufnr,
-        callback = function() vim.lsp.buf.format({ async = false }) end,
-      })
-    end
-  end,
+  capabilities = capabilities,
   filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
   root_markers = { "package.json", "tsconfig.json", ".git" },
 }

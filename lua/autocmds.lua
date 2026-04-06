@@ -51,7 +51,7 @@ autocmd("FileType", {
 
 autocmd("FileType", {
   group = "smart_wrap",
-  pattern = { "lua", "python", "javascript", "typescript", "json", "yaml", "html", "css", "sh", "bash" },
+  pattern = { "lua", "python", "javascript", "typescript", "php", "json", "yaml", "html", "css", "sh", "bash" },
   callback = function()
     vim.opt_local.wrap = false
   end,

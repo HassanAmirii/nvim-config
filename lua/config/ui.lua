@@ -3,7 +3,7 @@ require("nvim-web-devicons").setup({ default = true })
 
 require("lualine").setup({
   options = {
-    theme = "catppuccin",
+    theme = "auto",
     component_separators = { left = "", right = "" },
     section_separators = { left = "", right = "" },
   },
@@ -86,15 +86,26 @@ require("flash").setup()
 -- Conform.nvim (formatter)
 require("conform").setup({
   formatters_by_ft = {
+    c = { "clang_format" },
+    cpp = { "clang_format" },
+    lua = { "stylua" },
+    python = { "isort", "black" },
+    php = { "php_cs_fixer" },
     javascript = { "prettier" },
     typescript = { "prettier" },
     javascriptreact = { "prettier" },
     typescriptreact = { "prettier" },
     css = { "prettier" },
+    scss = { "prettier" },
+    less = { "prettier" },
     html = { "prettier" },
     json = { "prettier" },
+    jsonc = { "prettier" },
     yaml = { "prettier" },
     markdown = { "prettier" },
+    sh = { "shfmt" },
+    bash = { "shfmt" },
+    zsh = { "shfmt" },
   },
   format_on_save = {
     timeout_ms = 1000,

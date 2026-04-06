@@ -65,6 +65,7 @@ require("lazy").setup({
     -- LSP and completion
     { "williamboman/mason.nvim" },
     { "williamboman/mason-lspconfig.nvim" },
+    { "WhoIsSethDaniel/mason-tool-installer.nvim" },
     { "neovim/nvim-lspconfig" },
     { "hrsh7th/nvim-cmp", dependencies = { "hrsh7th/cmp-nvim-lsp", "L3MON4D3/LuaSnip" } },
     { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },

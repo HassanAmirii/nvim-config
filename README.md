@@ -1,9 +1,3 @@
-# Optimized Neovim Configuration
-
-## Overview
-
-This repository provides a highly optimized and feature-rich Neovim configuration, meticulously crafted to transform Neovim into a powerful and intuitive IDE. Built entirely in Lua, it leverages a modern plugin ecosystem to deliver an efficient and ergonomic development experience.
-
 ## Features
 
 - **Effortless Plugin Management**: Utilizes `lazy.nvim` for fast, declarative, and on-demand plugin loading, ensuring a snappy startup time.
