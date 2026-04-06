@@ -1,4 +1,6 @@
 -- Lualine
+require("nvim-web-devicons").setup({ default = true })
+
 require("lualine").setup({
   options = {
     theme = "catppuccin",
@@ -30,6 +32,14 @@ require("nvim-tree").setup({
 
   renderer = {
     indent_markers = { enable = true },
+    icons = {
+      show = {
+        file = true,
+        folder = true,
+        folder_arrow = true,
+        git = true,
+      },
+    },
   },
 })
 

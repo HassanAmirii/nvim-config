@@ -36,3 +36,23 @@ autocmd("DirChanged", {
     end
   end,
 })
+
+-- VS Code-like soft wrap for prose and docs
+augroup("smart_wrap", { clear = true })
+autocmd("FileType", {
+  group = "smart_wrap",
+  pattern = { "markdown", "text", "gitcommit", "rst", "asciidoc", "org" },
+  callback = function()
+    vim.opt_local.wrap = true
+    vim.opt_local.linebreak = true
+    vim.opt_local.breakindent = true
+  end,
+})
+
+autocmd("FileType", {
+  group = "smart_wrap",
+  pattern = { "lua", "python", "javascript", "typescript", "json", "yaml", "html", "css", "sh", "bash" },
+  callback = function()
+    vim.opt_local.wrap = false
+  end,
+})

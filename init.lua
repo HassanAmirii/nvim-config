@@ -33,6 +33,7 @@ require("lazy").setup({
 -- Core plugins
 { "folke/which-key.nvim", event = "VeryLazy" },  -- <-- ADD THIS
 { "folke/flash.nvim", event = "VeryLazy" },
+{ "nvim-tree/nvim-web-devicons", lazy = true },
 { "nvim-tree/nvim-tree.lua", dependencies = { "nvim-tree/nvim-web-devicons" } },
 { "nvim-lualine/lualine.nvim", dependencies = { "nvim-tree/nvim-web-devicons" } },
 { "lewis6991/gitsigns.nvim" },
