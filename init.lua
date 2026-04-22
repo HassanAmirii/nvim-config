@@ -132,6 +132,7 @@ require("lazy").setup({
 require("config.lsp")
 require("config.treesitter")
 require("config.cmp")
+require("config.telescope")
 require("config.ui")
 
 -- Colorscheme ---------------------------------------------------------------

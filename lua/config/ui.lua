@@ -3,6 +3,12 @@ vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#3ddbd9", bg = "NONE" })
 vim.api.nvim_set_hl(0, "CursorLine", { bg = "#1a1f2a" })
 vim.api.nvim_set_hl(0, "Pmenu", { bg = "#161616" })
 vim.api.nvim_set_hl(0, "AlphaHeader", { fg = "#78a9ff", bold = true })
+vim.api.nvim_set_hl(0, "AlphaNeo1", { fg = "#c7864c", bold = true })
+vim.api.nvim_set_hl(0, "AlphaNeo2", { fg = "#d39a5b", bold = true })
+vim.api.nvim_set_hl(0, "AlphaNeo3", { fg = "#e0c77d", bold = true })
+vim.api.nvim_set_hl(0, "AlphaNeo4", { fg = "#3d8f54", bold = true })
+vim.api.nvim_set_hl(0, "AlphaNeo5", { fg = "#73b58a", bold = true })
+vim.api.nvim_set_hl(0, "AlphaNeo6", { fg = "#a7d4b7", bold = true })
 vim.api.nvim_set_hl(0, "AlphaButtons", { fg = "#f2f4f8" })
 vim.api.nvim_set_hl(0, "AlphaShortcut", { fg = "#33b1ff", bold = true })
 vim.api.nvim_set_hl(0, "AlphaFooter", { fg = "#a2a9b0", italic = true })
@@ -86,13 +92,23 @@ dashboard.section.header.val = {
 }
 dashboard.section.buttons.val = {
   dashboard.button("f", "  Find File", ":Telescope find_files<CR>"),
-  dashboard.button("r", "  Recent Files", ":Telescope oldfiles<CR>"),
+  dashboard.button("r", "  Recent Files", ":Telescope oldfiles previewer=false<CR>"),
   dashboard.button("n", "  New File", ":ene <BAR> startinsert<CR>"),
   dashboard.button("s", "  Settings", ":e $MYVIMRC<CR>"),
   dashboard.button("q", "  Quit", ":qa<CR>"),
 }
 
-dashboard.section.header.opts = { hl = "AlphaHeader", position = "center" }
+dashboard.section.header.opts = {
+  hl = {
+    { { "AlphaNeo1", 0, -1 } },
+    { { "AlphaNeo2", 0, -1 } },
+    { { "AlphaNeo3", 0, -1 } },
+    { { "AlphaNeo4", 0, -1 } },
+    { { "AlphaNeo5", 0, -1 } },
+    { { "AlphaNeo6", 0, -1 } },
+  },
+  position = "center",
+}
 dashboard.section.buttons.opts = { hl = "AlphaButtons", hl_shortcut = "AlphaShortcut" }
 dashboard.section.footer.opts = { hl = "AlphaFooter", position = "center" }
 alpha.setup(dashboard.config)
