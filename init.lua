@@ -28,7 +28,7 @@ require("autocmds") -- autocommands
 require("lazy").setup({
 	spec = {
 		-- Colorscheme
-		{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+			{ "nyoom-engineering/oxocarbon.nvim", priority = 1000 },
 		ui = {
 			timeout = 120, -- Increase timeout to 120 seconds
 		},
@@ -125,7 +125,7 @@ require("lazy").setup({
 			},
 		},
 	},
-	install = { colorscheme = { "catppuccin" } },
+	install = { colorscheme = { "oxocarbon" } },
 })
 
 -- Load plugin configurations ------------------------------------------------
@@ -135,4 +135,4 @@ require("config.cmp")
 require("config.ui")
 
 -- Colorscheme ---------------------------------------------------------------
-vim.cmd.colorscheme("catppuccin")
+vim.cmd.colorscheme("oxocarbon")

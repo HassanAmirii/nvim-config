@@ -1,11 +1,24 @@
+vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE" })
+vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#3ddbd9", bg = "NONE" })
+vim.api.nvim_set_hl(0, "CursorLine", { bg = "#1a1f2a" })
+vim.api.nvim_set_hl(0, "Pmenu", { bg = "#161616" })
+vim.api.nvim_set_hl(0, "AlphaHeader", { fg = "#78a9ff", bold = true })
+vim.api.nvim_set_hl(0, "AlphaButtons", { fg = "#f2f4f8" })
+vim.api.nvim_set_hl(0, "AlphaShortcut", { fg = "#33b1ff", bold = true })
+vim.api.nvim_set_hl(0, "AlphaFooter", { fg = "#a2a9b0", italic = true })
+vim.api.nvim_set_hl(0, "NvimTreeNormal", { bg = "NONE" })
+vim.api.nvim_set_hl(0, "NvimTreeNormalNC", { bg = "NONE" })
+vim.api.nvim_set_hl(0, "NvimTreeWinSeparator", { fg = "#262626", bg = "NONE" })
+
 -- Lualine
 require("nvim-web-devicons").setup({ default = true })
 
 require("lualine").setup({
   options = {
     theme = "auto",
-    component_separators = { left = "", right = "" },
-    section_separators = { left = "", right = "" },
+    globalstatus = true,
+    component_separators = { left = "│", right = "│" },
+    section_separators = { left = "", right = "" },
   },
   sections = {
     lualine_a = { "mode" },
@@ -27,10 +40,13 @@ require("nvim-tree").setup({
   },
 
   view = {
-    width = 30,
+    width = 34,
+    preserve_window_proportions = true,
   },
 
   renderer = {
+    root_folder_label = false,
+    highlight_git = true,
     indent_markers = { enable = true },
     icons = {
       show = {
@@ -61,12 +77,12 @@ end
 
 
 dashboard.section.header.val = {
-  [[██╗  ██╗ █████╗ ███████╗███████╗ █████╗ ███╗   ██╗██████╗ ██████╗ ██╗████████╗]],
-  [[██║  ██║██╔══██╗██╔════╝██╔════╝██╔══██╗████╗  ██║╚════██╗██╔══██╗██║╚══██╔══╝]],
-  [[███████║███████║███████╗███████╗███████║██╔██╗ ██║ █████╔╝██████╔╝██║   ██║   ]],
-  [[██╔══██║██╔══██║╚════██║╚════██║██╔══██║██║╚██╗██║██╔═══╝ ██╔══██╗██║   ██║   ]],
-  [[██║  ██║██║  ██║███████║███████║██║  ██║██║ ╚████║███████╗██████╔╝██║   ██║   ]],
-  [[╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝╚═════╝ ╚═╝   ╚═╝   ]],
+  [[███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗]],
+  [[████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║]],
+  [[██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║]],
+  [[██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║]],
+  [[██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║]],
+  [[╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝]],
 }
 dashboard.section.buttons.val = {
   dashboard.button("f", "  Find File", ":Telescope find_files<CR>"),
@@ -76,8 +92,9 @@ dashboard.section.buttons.val = {
   dashboard.button("q", "  Quit", ":qa<CR>"),
 }
 
-dashboard.section.footer.val = get_greeting()
-
+dashboard.section.header.opts = { hl = "AlphaHeader", position = "center" }
+dashboard.section.buttons.opts = { hl = "AlphaButtons", hl_shortcut = "AlphaShortcut" }
+dashboard.section.footer.opts = { hl = "AlphaFooter", position = "center" }
 alpha.setup(dashboard.config)
 
 -- Flash.nvim
